@@ -1,0 +1,51 @@
+﻿@using eBusinessTemplate.Models;
+@model List<Blog>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Blogs</h4>
+            <p class="card-description">
+                Blogs
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Blog blog in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @blog.Image
+                                </td>
+                                <td>
+                                    @blog.Title
+                                </td>
+                                <td>
+                                    @blog.Description
+                                </td>
+                                <td>
+                                    <a asp-controller="blog" asp-action="update" asp-route-id="@blog.Id" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
+                                    <a asp-controller="blog" asp-action="delete" asp-route-id="@blog.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
