@@ -35,9 +35,24 @@ namespace eBusinessTemplate.Areas.Manage.Controllers
                 return View();
 
             }
+
            RedirectToAction(nameof(Index));
             
             
+
+        }
+        public async Task<IActionResult> Create(Blog blog)
+        {
+            if (blog.Photo == null)
+            {
+                ModelState.AddModelError("Photo", "Sekil bos gonderile bilmez");
+                return View();
+
+            }
+
+            RedirectToAction(nameof(Index));
+
+
 
         }
 
